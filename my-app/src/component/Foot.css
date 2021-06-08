@@ -1,0 +1,12 @@
+.Para{
+    color: black;
+    font-weight: bold;
+}
+.Span{
+    color: yellow;
+    font-weight: bolder;
+}
+footer{
+    text-align: center;
+    background-color: aquamarine;
+}
