@@ -5,7 +5,7 @@ import Main from './component/Main';
 import SelectedBeast from './component/SelectBeast';
 import HornedData from './component/Data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Form from './component/Form';
 
 class App extends React.Component{
   constructor(props){
@@ -14,7 +14,7 @@ class App extends React.Component{
       HornedData: HornedData,
       show: false,
       SelectedBeast:'',
-      
+      hornedNumber: 'All'
     }
   }
   
@@ -35,11 +35,17 @@ class App extends React.Component{
     });
   }
 
+  getHorned = (event) =>{
+    this.setState({
+      hornedNumber: event.target.value
+    });
+  }
   render(){
     return(
       <body>
         <Header/>
-        <Main HornedData = {this.state.HornedData} openModal={this.openModal} clickFunc={this.clickFunc} />
+        <Form getHorned={this.getHorned} />
+        <Main HornedData = {this.state.HornedData} clickFunc={this.clickFunc} hornedNumber={this.state.hornedNumber} />
         <SelectedBeast display={this.state.show} closeModal = {this.closeModal} SelectedBeast={this.state.SelectedBeast}/>
         <Footer/>
       </body>
