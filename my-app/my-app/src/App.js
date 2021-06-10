@@ -2,35 +2,46 @@ import React from 'react';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import Main from './component/Main';
-import SelectBeast from './component/SelectBeast';
-import Horned from './component/Data.json';
+import SelectedBeast from './component/SelectBeast';
+import HornedData from './component/Data.json';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      dataArray: Horned,
+      HornedData: HornedData,
       show: false,
+      SelectedBeast:'',
+      
     }
   }
-  openModal(){
-    this.setState({show:true});
-  }
-  closeModal(){
+  
+  closeModal = () => {
     this.setState({show:false});
+  }
+
+  clickFunc = (title) => {
+    // eslint-disable-next-line array-callback-return
+    let SelectedBeast = HornedData.find(item => {
+      if (item.title === title){
+        return item;
+      }
+    })
+    this.setState({
+      SelectedBeast:SelectedBeast,
+      show: true,
+    });
   }
 
   render(){
     return(
       <body>
         <Header/>
-        <Main/>
+        <Main HornedData = {this.state.HornedData} openModal={this.openModal} clickFunc={this.clickFunc} />
+        <SelectedBeast display={this.state.show} closeModal = {this.closeModal} SelectedBeast={this.state.SelectedBeast}/>
         <Footer/>
-        <SelectBeast show={this.state.show}
-          closeModal={this.closeModal}
-          description = {Horned.description}
-          title = {Horned.title}
-          image_url = {Horned.image_url}/>
       </body>
     ) 
   }

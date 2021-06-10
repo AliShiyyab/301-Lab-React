@@ -1,6 +1,7 @@
 import React from 'react';
 import Horned from './Horned';
 import CardGroup from 'react-bootstrap/CardGroup';
+//import Data from './Data.json';
 
 class Main extends React.Component{
     render(){
@@ -10,11 +11,12 @@ class Main extends React.Component{
            <CardGroup>
 
             {
-                this.props.dataArray.map( items => {
-                    return(<Horned title={items.title} 
-                           description={items.description} 
-                           url={items.image_url}
-                           openModal={this.props.openModal()}
+                this.props.HornedData.map( items => {
+                    return(<Horned
+                        clickFunc={this.props.clickFunc}
+                        url={items.image_url}
+                        title={items.title} 
+                        description={items.description} 
                            />)
             })
         }
