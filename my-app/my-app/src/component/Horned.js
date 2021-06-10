@@ -23,19 +23,19 @@ update = () => {
 render(){
         return(
             <div>
-             <Card style={{ width: '18rem' }}>
-             <Card.Img variant="top" src={this.props.url} onClick={this.update} />
-             <Card.Body>
-             <Card.Title>{this.props.title}</Card.Title>
-             <Card.Text>
-              ❤️ = {this.state.numOfHorned}
-             </Card.Text>
-             <Card.Text>
-              {this.props.description}
-             </Card.Text>
-             </Card.Body>
-             <button onClick={this.increasNumOfHorned}>Increase</button>
-             </Card>
+            <Card style={{ width: '18rem' }}  onClick={this.update}>
+            <Card.Img variant="top" title={this.props.title} src={this.props.url} />
+            <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>
+             ❤️ = {this.state.numOfHorned}
+            </Card.Text>
+            <Card.Text>
+             {this.props.description}
+            </Card.Text>
+            </Card.Body>
+            <button onClick={this.increasNumOfHorned}>Increase</button>
+            </Card>
             </div>
         )
     }
