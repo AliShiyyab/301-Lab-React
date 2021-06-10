@@ -12,12 +12,22 @@ class Main extends React.Component{
 
             {
                 this.props.HornedData.map( items => {
-                    return(<Horned
-                        clickFunc={this.props.clickFunc}
-                        url={items.image_url}
-                        title={items.title} 
-                        description={items.description} 
-                           />)
+                    if(this.props.hornedNumber === 'All'){    
+                        return(<Horned
+                            clickFunc={this.props.clickFunc}
+                            url={items.image_url}
+                            title={items.title} 
+                            description={items.description} 
+                            />)
+                        }
+                    else if(items.horns == this.props.hornedNumber){    
+                        return(<Horned
+                            clickFunc={this.props.clickFunc}
+                            url={items.image_url}
+                            title={items.title} 
+                            description={items.description} 
+                            />)
+                        }
             })
         }
 
