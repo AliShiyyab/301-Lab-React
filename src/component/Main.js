@@ -11,22 +11,22 @@ class Main extends React.Component{
            <CardGroup>
 
             {
-                this.props.HornedData.map( items => {
+                this.props.HornedData.map( (items,index) => {
                     if(this.props.hornedNumber === 'All'){    
                         return(<Horned
+                            key = {index}
                             clickFunc={this.props.clickFunc}
                             url={items.image_url}
                             title={items.title} 
-                            description={items.description} 
-                            />)
+                            description={items.description} />)
                         }
                     else if(items.horns == this.props.hornedNumber){    
                         return(<Horned
+                            key = {index}
                             clickFunc={this.props.clickFunc}
                             url={items.image_url}
                             title={items.title} 
-                            description={items.description} 
-                            />)
+                            description={items.description} />)
                         }
             })
         }

@@ -3,3 +3,8 @@
     font-size: large;
     font-weight: bolder;
 }
+
+.ImageSize{
+    width: 100%;
+    height: 350px;
+}
