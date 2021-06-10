@@ -15,16 +15,16 @@ increasNumOfHorned = () => {
         numOfHorned : this.state.numOfHorned+1
     })
 }
-update = function(){
-    this.props.clickFunc(this.props.title)
+update = () => {
+    this.props.clickFunc(this.props.title);
 }
 
 
 render(){
         return(
             <div>
-             <Card style={{ width: '18rem' }}>
-             <Card.Img variant="top" src={this.props.url} onClick={this.props.update} />
+             <Card style={{ width: '18rem' }}  onClick={this.update}>
+             <Card.Img variant="top" title={this.props.title} src={this.props.url} />
              <Card.Body>
              <Card.Title>{this.props.title}</Card.Title>
              <Card.Text>

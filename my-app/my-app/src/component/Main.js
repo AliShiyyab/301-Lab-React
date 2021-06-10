@@ -6,23 +6,25 @@ import CardGroup from 'react-bootstrap/CardGroup';
 class Main extends React.Component{
     render(){
         return(
-            <body>
+            <div>
 
            <CardGroup>
 
             {
-                this.props.HornedData.map( items => {
+                this.props.HornedData.map( (items,index) => {
                     return(<Horned
+                        key = {index}
                         clickFunc={this.props.clickFunc}
                         url={items.image_url}
                         title={items.title} 
                         description={items.description} 
-                           />)
+                        
+                        />)
             })
         }
 
         </CardGroup>        
-        </body>
+        </div>
         )
     }
 }

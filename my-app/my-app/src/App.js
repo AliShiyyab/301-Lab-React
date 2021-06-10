@@ -13,7 +13,7 @@ class App extends React.Component{
     this.state = {
       HornedData: HornedData,
       show: false,
-      SelectedBeast:'',
+      SelectedBeast: {}
       
     }
   }
@@ -24,25 +24,25 @@ class App extends React.Component{
 
   clickFunc = (title) => {
     // eslint-disable-next-line array-callback-return
-    let SelectedBeast = HornedData.find(item => {
-      if (item.title === title){
-        return item;
-      }
-    })
+    const SelectedBeast = HornedData.find(element => element.title === title)
+
     this.setState({
       SelectedBeast:SelectedBeast,
-      show: true,
-    });
+      show: true
+    }); 
+    console.log(SelectedBeast);
   }
 
   render(){
+    console.log(this.state.show);
+    console.log(this.state.SelectedBeast);
     return(
-      <body>
+      <div>
         <Header/>
-        <Main HornedData = {this.state.HornedData} openModal={this.openModal} clickFunc={this.clickFunc} />
+        <Main HornedData = {this.state.HornedData} clickFunc={this.clickFunc} />
         <SelectedBeast display={this.state.show} closeModal = {this.closeModal} SelectedBeast={this.state.SelectedBeast}/>
         <Footer/>
-      </body>
+      </div>
     ) 
   }
 }
